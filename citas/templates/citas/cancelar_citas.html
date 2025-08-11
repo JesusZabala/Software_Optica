@@ -1,0 +1,46 @@
+{% extends 'principal/base.html' %}
+{% block content %}
+<h2 style="color: #fff; background: var(--verde-oscuro, #184008); padding: 1rem 2rem; border-radius: 0.5rem; text-align:center;">Cancelar Citas</h2>
+
+{% if messages %}
+<ul>
+    {% for message in messages %}
+        <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Cliente</th>
+            <th>Optometrista</th>
+            <th>Fecha y Hora</th>
+            <th>Estado</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cita in citas %}
+        <tr>
+            <td>{{ cita.id_cita }}</td>
+            <td>{{ cita.id_cliente.nombre }}</td>
+            <td>{{ cita.id_empleado.nombre }}</td>
+            <td>{{ cita.fecha_hora }}</td>
+            <td>{{ cita.estado }}</td>
+            <td>
+                <form method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <input type="hidden" name="id_cita" value="{{ cita.id_cita }}">
+                    <button type="submit" onclick="return confirm('¿Cancelar esta cita?')">Cancelar</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<div class="d-flex justify-content-between align-items-center mt-4">
+  <button type="button" class="btn btn-secondary btn-volver" onclick="window.history.back()"><i class="fas fa-arrow-left me-2"></i>Volver</button>
+</div>
+{% endblock %}

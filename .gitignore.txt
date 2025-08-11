@@ -1,0 +1,34 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Caches and database
+*.sqlite3
+
+# Environments
+env/
+venv/
+ENV/
+VENV/
+
+# Django logs and media
+*.log
+media/
+
+# Static files
+staticfiles/
+static/
+
+# IDEs and editors
+.vscode/
+.idea/
+
+# MacOS files
+.DS_Store
+
+# dotenv files
+.env
+
+# Settings file (opcional, solo si quieres ignorarlo y no subirlo)
+Optica/settings.py

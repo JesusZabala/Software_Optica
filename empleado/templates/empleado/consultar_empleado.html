@@ -1,0 +1,35 @@
+{% extends 'principal/base.html' %}
+{% block content %}
+<div class="form-container empleado-form-optica">
+  <h2 class="form-title">Consultar Empleado</h2>
+  {% if messages %}
+    <ul>
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  <form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="usuario">Usuario:</label>
+      <input type="text" class="form-control" name="usuario" id="usuario" required>
+    </div>
+    <div class="d-flex justify-content-between align-items-center mt-4">
+      <button type="button" class="btn btn-secondary btn-volver" onclick="window.history.back()"><i class="fas fa-arrow-left me-2"></i>Volver</button>
+      <button type="submit" class="btn btn-optica">Buscar</button>
+    </div>
+  </form>
+  {% if empleado %}
+    <div class="mt-4">
+      <h3>Datos del Empleado:</h3>
+      <ul>
+        <li><strong>ID:</strong> {{ empleado.id_empleado }}</li>
+        <li><strong>Usuario:</strong> {{ empleado.usuario }}</li>
+        <li><strong>Nombre:</strong> {{ empleado.nombre }}</li>
+        <li><strong>Rol:</strong> {{ empleado.rol }}</li>
+      </ul>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

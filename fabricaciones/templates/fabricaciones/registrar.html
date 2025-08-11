@@ -1,0 +1,137 @@
+{% extends 'principal/base.html' %}
+
+{% block content %}
+<div class="form-container empleado-form-optica" style="max-width: 600px; margin: 0 auto;">
+    <h2 class="form-title text-center mb-4">Registrar Fabricación</h2>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    {% if form.non_field_errors %}
+        <div class="alert alert-danger">
+            {% for error in form.non_field_errors %}
+                <div>{{ error }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <form method="post" novalidate>
+        {% csrf_token %}
+
+        <!-- diagnóstico -->
+        <div class="mb-3">
+            <label class="form-label">Diagnóstico</label>
+            {{ form.diagnostico }}
+            {% if form.diagnostico.errors %}
+                <div class="text-danger small">{{ form.diagnostico.errors.0 }}</div>
+            {% endif %}
+        </div>
+
+        <!-- tipo de producto -->
+        <div class="mb-3">
+            <label class="form-label">Tipo de Producto</label>
+            {{ form.tipo_producto }}
+            {% if form.tipo_producto.errors %}
+                <div class="text-danger small">{{ form.tipo_producto.errors.0 }}</div>
+            {% endif %}
+        </div>
+
+        <!-- esfera / cilindro / eje OI -->
+        <div class="mb-3">
+            <label class="form-label">Esfera Ojo Izquierdo</label>
+            {{ form.esfera_oi }}
+            {% if form.esfera_oi.errors %}
+                <div class="text-danger small">{{ form.esfera_oi.errors.0 }}</div>
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Cilindro Ojo Izquierdo</label>
+            {{ form.cilindro_oi }}
+            {% if form.cilindro_oi.errors %}
+                <div class="text-danger small">{{ form.cilindro_oi.errors.0 }}</div>
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Eje Ojo Izquierdo</label>
+            {{ form.eje_oi }}
+            {% if form.eje_oi.errors %}
+                <div class="text-danger small">{{ form.eje_oi.errors.0 }}</div>
+            {% endif %}
+        </div>
+
+        <!-- esfera / cilindro / eje OD -->
+        <div class="mb-3">
+            <label class="form-label">Esfera Ojo Derecho</label>
+            {{ form.esfera_od }}
+            {% if form.esfera_od.errors %}
+                <div class="text-danger small">{{ form.esfera_od.errors.0 }}</div>
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Cilindro Ojo Derecho</label>
+            {{ form.cilindro_od }}
+            {% if form.cilindro_od.errors %}
+                <div class="text-danger small">{{ form.cilindro_od.errors.0 }}</div>
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Eje Ojo Derecho</label>
+            {{ form.eje_od }}
+            {% if form.eje_od.errors %}
+                <div class="text-danger small">{{ form.eje_od.errors.0 }}</div>
+            {% endif %}
+        </div>
+
+        <!-- adición -->
+        <div class="mb-3">
+            <label class="form-label">Adición (si aplica)</label>
+            {{ form.adicion }}
+            {% if form.adicion.errors %}
+                <div class="text-danger small">{{ form.adicion.errors.0 }}</div>
+            {% endif %}
+        </div>
+
+        <!-- materiales -->
+        <div class="mb-3">
+            <label class="form-label">Materiales</label>
+            {{ form.materiales }}
+            {% if form.materiales.errors %}
+                <div class="text-danger small">{{ form.materiales.errors.0 }}</div>
+            {% endif %}
+        </div>
+
+        <!-- tratamientos -->
+        <div class="mb-3">
+            <label class="form-label">Tratamientos</label>
+            {{ form.tratamientos }}
+            {% if form.tratamientos.errors %}
+                <div class="text-danger small">{{ form.tratamientos.errors.0 }}</div>
+            {% endif %}
+        </div>
+
+        <!-- fecha entrega -->
+        <div class="mb-3">
+            <label class="form-label">Fecha Estimada de Entrega</label>
+            {{ form.fecha_entrega_estimada }}
+            {% if form.fecha_entrega_estimada.errors %}
+                <div class="text-danger small">{{ form.fecha_entrega_estimada.errors.0 }}</div>
+            {% endif %}
+        </div>
+
+        <!-- botones -->
+        <div class="d-flex justify-content-between mt-4">
+            <button type="button" class="btn btn-secondary" onclick="window.history.back()">
+                <i class="fas fa-arrow-left me-2"></i>Volver
+            </button>
+            <button type="submit" class="btn btn-optica">
+                <i class="fas fa-save me-2"></i>Guardar
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+

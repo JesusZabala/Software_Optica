@@ -1,0 +1,55 @@
+{% extends 'principal/base.html' %}
+
+{% block content %}
+<div class="form-container empleado-form-optica">
+  <h2 class="form-title">Agendar Cita</h2>
+
+  {% if messages %}
+  <ul class="alert alert-success">
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  {% if form.non_field_errors %}
+  <div class="alert alert-danger">
+    {% for error in form.non_field_errors %}
+      <div>{{ error }}</div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <form method="post" novalidate>
+    {% csrf_token %}
+    {% for field in form %}
+      <div class="mb-3">
+        {{ field.label_tag }}
+        {{ field }}
+        {% if field.errors %}
+          <div class="text-danger small">{{ field.errors|striptags }}</div>
+        {% endif %}
+      </div>
+    {% endfor %}
+    <div class="d-flex justify-content-between align-items-center mt-4">
+      <button type="button" class="btn btn-secondary btn-volver" onclick="window.history.back()">
+        <i class="fas fa-arrow-left me-2"></i>Volver
+      </button>
+      <button type="submit" class="btn btn-optica">Agendar Cita</button>
+    </div>
+  </form>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const cedulaInput = document.querySelector('input[name="cedula"]');
+    if (cedulaInput) {
+      cedulaInput.id = 'cedula';
+      cedulaInput.addEventListener('input', function () {
+        this.value = this.value.replace(/\D/g, '');
+      });
+    }
+  });
+</script>
+{% endblock %}
+

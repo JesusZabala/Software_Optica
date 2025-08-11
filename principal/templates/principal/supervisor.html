@@ -1,0 +1,222 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optica - Supervisor</title>
+    <link href="{% static 'principal/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="{% static 'principal/css/gestion.css' %}" rel="stylesheet">
+    <link href="{% static 'principal/css/optica-estilo.css' %}" rel="stylesheet">
+</head>
+<body class="empleado-page">
+    <!-- Encabezado -->
+    <header class="header-empleado">    
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="logo-empleado">
+                    <img src="{% static 'principal/img/LogoB.png' %}" alt="Opti Samuel C.A" class="img-fluid" style="height: 50px">
+                    <span class="nombre-opt">Optica</span>
+                </div>
+                <div class="user-info d-flex align-items-center">
+                    <span class="me-3"><i class="fas fa-user-shield me-1"></i> Supervisor</span>
+                    <a href="{% url 'logout_loading_screen' %}" class="btn btn-cerrar-sesion">Cerrar sesión</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="container my-5">
+        <div class="row">
+            <div class="col-md-3">
+                <!-- Menú Lateral -->
+                <div class="card menu-lateral">
+                    <div class="card-header bg-opt">
+                        <h5 class="mb-0 text-white"><i class="fas fa-chart-line me-2"></i> Menú Supervisor</h5>
+                    </div>
+                    <div class="list-group list-group-flush">
+                        <a href="#" class="list-group-item list-group-item-action active">
+                            <i class="fas fa-home me-2"></i> Inicio
+                        </a>
+                        <a href="{% url 'empleados:registrar_empleado' %}" class="list-group-item list-group-item-action">
+                            <i class="fas fa-user-plus me-2"></i> Registrar Empleado
+                        </a>
+                        <a href="{% url 'empleados:modificar_empleado' %}" class="list-group-item list-group-item-action">
+                            <i class="fas fa-user-edit me-2"></i> Modificar Empleado
+                        </a>
+                        <a href="{% url 'empleados:consultar_empleado' %}" class="list-group-item list-group-item-action">
+                            <i class="fas fa-search me-2"></i> Consultar Empleado
+                        </a>
+                        <a href="{% url 'reportes:generar_reporte'%}" class="list-group-item list-group-item-action">
+                            <i class="fas fa-file-alt me-2"></i> Reportes
+                        </a>
+                        <a href="{% url 'ayuda:ayuda_inicio' %}" class="list-group-item list-group-item-action">
+                            <i class="fas fa-headset me-2"></i> Ayuda
+                        </a>
+                       
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel Principal -->
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header bg-opt text-white">
+                        <h5 class="mb-0"><i class="fas fa-user-shield me-2"></i> Panel de Supervisor</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <!-- Estadísticas Rápidas -->
+                            <div class="col-md-3 mb-4">
+                                <div class="card stat-card">
+                                    <div class="card-body text-center">
+                                        <h6 class="card-subtitle mb-2">Citas</h6>
+                                        <h3 class="text-primary">{{ citas_total }}</h3>
+                                        <p class="small text-muted">Registradas</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-4">
+                                <div class="card stat-card">
+                                    <div class="card-body text-center">
+                                        <h6 class="card-subtitle mb-2">Empleados</h6>
+                                        <h3 class="text-warning">{{ empleados_total }}</h3>
+                                        <p class="small text-muted">Registrados</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-4">
+                                <div class="card stat-card">
+                                    <div class="card-body text-center">
+                                        <h6 class="card-subtitle mb-2">Clientes</h6>
+                                        <h3 class="text-success">{{ clientes_total }}</h3>
+                                        <p class="small text-muted">Registrados</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-4">
+                                <div class="card stat-card">
+                                    <div class="card-body text-center">
+                                        <h6 class="card-subtitle mb-2">Fabricaciones</h6>
+                                        <h3 class="text-danger">{{ fabricaciones_total }}</h3>
+                                        <p class="small text-muted">Registradas</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Alertas Recientes -->
+                        <h5 class="mt-4 mb-3"><i class="fas fa-exclamation-triangle me-2"></i> Alertas Recientes</h5>
+                        <!-- Alerta: Última cita registrada -->
+                        {% if ultima_cita %}
+                        <div class="alert alert-warning">
+                            <i class="fas fa-calendar-plus me-2"></i>
+                            <strong>Última cita:</strong> Cliente {{ ultima_cita.id_cliente.nombre }}<br>
+                            Fecha: {{ ultima_cita.fecha_hora|date:'d/m/Y H:i' }}
+                        </div>
+                        {% else %}
+                        <div class="alert alert-warning">
+                            <i class="fas fa-calendar-plus me-2"></i>
+                            <strong>No hay citas registradas.</strong>
+                        </div>
+                        {% endif %}
+                        <!-- Alerta: Último empleado registrado -->
+                        {% if ultimo_empleado %}
+                        <div class="alert alert-info">
+                            <i class="fas fa-user-plus me-2"></i>
+                            <strong>Nuevo empleado:</strong> {{ ultimo_empleado.nombre }}<br>
+                            Rol: {{ ultimo_empleado.get_rol_display }}
+                        </div>
+                        {% else %}
+                        <div class="alert alert-info">
+                            <i class="fas fa-user-plus me-2"></i>
+                            <strong>No hay empleados registrados.</strong>
+                        </div>
+                        {% endif %}
+                        <!-- Alerta: Última fabricación registrada -->
+                        {% if ultima_fabricacion %}
+                        <div class="alert alert-success">
+                            <i class="fas fa-box me-2"></i>
+                            <strong>Última fabricación:</strong> Cliente {{ ultima_fabricacion.diagnostico.id_cita.id_cliente.nombre }}<br>
+                            Estado: {{ ultima_fabricacion.estado|title }}
+                        </div>
+                        {% else %}
+                        <div class="alert alert-success">
+                            <i class="fas fa-box me-2"></i>
+                            <strong>No hay fabricaciones registradas.</strong>
+                        </div>
+                        {% endif %}
+
+                        <!-- Resumen de Actividad -->
+                        <h5 class="mt-4 mb-3"><i class="fas fa-chart-line me-2"></i> Resumen de Actividad</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card mb-4">
+                                    <div class="card-header bg-light">
+                                        <h6 class="mb-0"><i class="fas fa-calendar me-2"></i> Últimas Citas Registradas</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        {% if ultimas_citas %}
+                                        <ul class="list-group">
+                                            {% for cita in ultimas_citas %}
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                <span>
+                                                    <i class="fas fa-user me-1"></i> {{ cita.id_cliente.nombre }}<br>
+                                                    <small class="text-muted">{{ cita.fecha_hora|date:'d/m/Y H:i' }}</small>
+                                                </span>
+                                                <span class="badge bg-secondary">{{ cita.estado|title }}</span>
+                                            </li>
+                                            {% endfor %}
+                                        </ul>
+                                        {% else %}
+                                        <p class="text-muted">No hay citas registradas.</p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card mb-4">
+                                    <div class="card-header bg-light">
+                                        <h6 class="mb-0"><i class="fas fa-cogs me-2"></i> Últimas Fabricaciones</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        {% if ultimas_fabricaciones %}
+                                        <ul class="list-group">
+                                            {% for fab in ultimas_fabricaciones %}
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                <span>
+                                                    <i class="fas fa-user me-1"></i> {{ fab.diagnostico.id_cita.id_cliente.nombre }}<br>
+                                                    <small class="text-muted">{{ fab.fecha_entrega_estimada|date:'d/m/Y' }}</small>
+                                                </span>
+                                                <span class="badge bg-secondary">{{ fab.estado|title }}</span>
+                                            </li>
+                                            {% endfor %}
+                                        </ul>
+                                        {% else %}
+                                        <p class="text-muted">No hay fabricaciones registradas.</p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Pie de Página -->
+    <footer class="footer-empleado">
+        <div class="container text-center py-3">
+            <p class="mb-0 small">&copy; 2025 Optica - Todos los derechos reservados |</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'principal/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'principal/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

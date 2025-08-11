@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optica - Optometrista</title>
+    <link href="{% static 'principal/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="{% static 'principal/css/gestion.css' %}" rel="stylesheet">
+    <link href="{% static 'principal/css/optica-estilo.css' %}" rel="stylesheet">
+</head>
+<body class="empleado-page">
+    <!-- Encabezado -->
+    <header class="header-empleado">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="logo-empleado">
+                    <img src="{% static 'principal/img/LogoB.png' %}" alt="Opti Samuel C.A" class="img-fluid" style="height: 50px">
+                    <span class="nombre-opt">Optica</span>
+                </div>
+                <div class="user-info d-flex align-items-center">
+                    <span class="me-3"><i class="fas fa-user-md me-1"></i>Optometrista</span>
+                    <a href="{% url 'logout_loading_screen' %}" class="btn btn-cerrar-sesion ms-3"><i class="fas fa-sign-out-alt me-1"></i> Cerrar sesión</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="container my-5">
+        <div class="row">
+            <div class="col-md-3">
+                <!-- Menú Lateral --> <!-- MENU!!!!!!!!!!!!!!!!! -->
+                <div class="card menu-lateral">
+                    <div class="card-header bg-opt">
+                        <h5 class="mb-0 text-white"><i class="fas fa-eye me-2"></i> Menú Optometrista</h5>
+                    </div>
+                    <!-- MENU!!!!!!!!!!!!!!!!! -->
+                    <div class="list-group list-group-flush">
+                        <a href="#" class="list-group-item list-group-item-action active">
+                            <i class="fas fa-home me-2"></i> Inicio
+                        </a>
+                        <a href="{% url 'consultar_cita' %}" class="list-group-item list-group-item-action">
+                            <i class="fas fa-list me-2"></i> Lista de Citas
+                        </a>
+                        <a href="{% url 'diagnostico:registrar_diagnostico' %}" class="list-group-item list-group-item-action">
+                            <i class="fas fa-file-medical me-2"></i> Registrar Diagnóstico
+                        </a>
+                        <a href="{% url 'diagnostico:consultar' %}" class="list-group-item list-group-item-action">
+                            <i class="fas fa-chart-bar me-2"></i> Consultar Diagnóstico
+                        </a>
+                        <a href="{% url 'ayuda:ayuda_inicio' %}" class="list-group-item list-group-item-action">
+                            <i class="fas fa-headset me-2"></i> Ayuda
+                        </a>
+                    </div>
+                    <!-- MENU!!!!!!!!!!!!!!!!! -->
+                </div>
+            </div>
+
+
+            <!-- Panel Principal -->
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header bg-opt text-white">
+                        <h5 class="mb-0"><i class="fas fa-user-md me-2"></i> Panel de Optometrista</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <!-- Estadísticas Rápidas -->
+                            <div class="col-md-4 mb-4">
+                                <div class="card stat-card">
+                                    <div class="card-body text-center">
+                                        <h6 class="card-subtitle mb-2">Citas Registradas</h6>
+                                        <h3 class="text-primary">{{ total_citas }}</h3>
+                                        <p class="small text-muted">En el sistema</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card stat-card">
+                                    <div class="card-body text-center">
+                                        <h6 class="card-subtitle mb-2">Diagnósticos</h6>
+                                        <h3 class="text-success">{{ total_diagnosticos }}</h3>
+                                        <p class="small text-muted">En el sistema</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card stat-card">
+                                    <div class="card-body text-center">
+                                        <h6 class="card-subtitle mb-2">Citas Confirmadas</h6>
+                                        <h3 class="text-warning">{{ total_citas_confirmadas }}</h3>
+                                        <p class="small text-muted">En el sistema</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Próximas Citas -->
+                        <h5 class="mt-4 mb-3"><i class="fas fa-calendar-day me-2"></i> Mis Citas</h5>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Fecha y Hora</th>
+                                        <th>Cliente</th>
+                                        <th>Estado</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for cita in citas_optometrista %}
+                                    <tr>
+                                        <td>{{ cita.fecha_hora|date:'d/m/Y H:i' }}</td>
+                                        <td>{{ cita.id_cliente.nombre }}</td>
+                                        <td>
+                                            {% if cita.estado == 'agendada' %}
+                                                <span class="badge bg-success">Confirmada</span>
+                                            {% elif cita.estado == 'cancelada' %}
+                                                <span class="badge bg-danger">Cancelada</span>
+                                            {% else %}
+                                                <span class="badge bg-secondary">{{ cita.estado|title }}</span>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    {% empty %}
+                                    <tr>
+                                        <td colspan="3" class="text-center">No hay citas registradas.</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Pie de Página -->
+    <footer class="footer-empleado">
+        <div class="container text-center py-3">
+            <p class="mb-0 small">&copy; 2025 Optica - Todos los derechos reservados |</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'principal/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'principal/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

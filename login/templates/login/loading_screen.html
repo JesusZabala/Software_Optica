@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargando Contenido de la Óptica...</title>
+    <link href="{% static 'principal/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <style>
+      body {
+        background: linear-gradient(135deg, #184008 60%, #b6e2b6 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+      }
+      .loader-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255,255,255,0.97);
+        border-radius: 1.5rem;
+        box-shadow: 0 8px 32px rgba(24,64,8,0.18);
+        padding: 3rem 2.5rem;
+        min-width: 320px;
+        min-height: 220px;
+        animation: fadeOut 1s 2.5s forwards;
+      }
+      .loader-logo {
+        max-width: 90px;
+        margin-bottom: 1.2rem;
+        display: block;
+      }
+      .loader-title {
+        font-family: 'Raleway', sans-serif;
+        font-size: 1.7rem;
+        color: #184008;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        letter-spacing: 1px;
+      }
+      .loader-spinner {
+        border: 6px solid #b6e2b6;
+        border-top: 6px solid #184008;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        animation: spin 1s linear infinite;
+        margin-bottom: 1.5rem;
+      }
+      .loader-text {
+        font-size: 1.1rem;
+        color: #184008;
+        font-family: 'Lora', serif;
+        opacity: 0.85;
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      @keyframes fadeOut {
+        to { opacity: 0; visibility: hidden; }
+      }
+    </style>
+</head>
+<body>
+  <div class="loader-container" id="loader">
+    <img src="{% static 'principal/img/LogoB.png' %}" alt="Opti Samuel C.A" class="loader-logo">
+    <div class="loader-title">Optica</div>
+    <div class="loader-spinner"></div>
+    <div class="loader-text">Cargando perfil en la Óptica...</div>
+  </div>
+  <script>
+    // Redirige al menú principal del usuario según su perfil después de la animación
+    setTimeout(function() {
+      window.location.href = "{{ menu_url }}";
+    }, 2500);
+  </script>
+</body>
+</html>

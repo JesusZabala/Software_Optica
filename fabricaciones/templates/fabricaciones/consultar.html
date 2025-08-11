@@ -1,0 +1,35 @@
+{% extends 'principal/base.html' %}
+{% load static %}
+{% block content %}
+<h2 style="color: #fff; background: var(--verde-oscuro, #184008); padding: 1rem 2rem; border-radius: 0.5rem; text-align:center;">Lista de Fabricaciones</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Diagnóstico</th>
+            <th>Tipo Producto</th>
+            <th>Fórmula</th>
+            <th>Materiales</th>
+            <th>Fecha Entrega</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for f in fabricaciones %}
+        <tr>
+            <td>{{ f.diagnostico.id_diagnostico }}</td>
+            <td>{{ f.tipo_producto }}</td>
+            <td>{{ f.formula }}</td>
+            <td>{{ f.materiales }}</td>
+            <td>{{ f.fecha_entrega_estimada }}</td>
+            <td>{{ f.estado }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<div class="d-flex justify-content-between align-items-center mt-4">
+  <button type="button" class="btn btn-secondary btn-volver" onclick="window.history.back()"><i class="fas fa-arrow-left me-2"></i>Volver</button>
+</div>
+{% endblock %}
+<link href="{% static 'principal/css/gestion.css' %}" rel="stylesheet">
+<link href="{% static 'principal/css/optica-estilo.css' %}" rel="stylesheet">

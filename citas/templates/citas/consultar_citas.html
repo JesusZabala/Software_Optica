@@ -1,0 +1,72 @@
+{% extends 'principal/base.html' %}
+{% load static %}
+{% block content %}
+<div class="form-container empleado-form-optica" style="max-width: 400px; margin: 0 auto;">
+  <h2 class="form-title text-center">Consultar Citas</h2>
+  <form method="get" class="mb-4">
+      <div class="mb-3 d-flex flex-column">
+        <label class="form-label mb-1" for="fecha">Fecha:</label>
+        <input type="date" class="form-control" id="fecha" name="fecha">
+      </div>
+      <div class="mb-3 d-flex flex-column">
+        <label class="form-label mb-1" for="estado">Estado:</label>
+        <select name="estado" id="estado" class="form-select">
+            <option value="">--Seleccionar--</option>
+            <option value="agendada">Agendada</option>
+            <option value="cancelada">Cancelada</option>
+        </select>
+      </div>
+      <div class="mb-3 d-flex flex-column">
+        <label class="form-label mb-1" for="cedula">Cédula:</label>
+        <input type="text" class="form-control" id="cedula" name="cedula" maxlength="8" placeholder="Ej: 12345678">
+      </div>
+      <div class="mb-3">
+        <button type="submit" class="btn btn-optica w-100"><i class="fas fa-search me-2"></i>Buscar</button>
+      </div>
+  </form>
+  {% if citas %}
+  <div class="table-responsive">
+    <table class="table table-hover align-middle">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Cliente</th>
+                <th>Optometrista</th>
+                <th>Fecha y Hora</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cita in citas %}
+            <tr>
+                <td>{{ cita.id_cita }}</td>
+                <td>{{ cita.id_cliente.nombre }}</td>
+                <td>{{ cita.id_empleado.nombre }}</td>
+                <td>{{ cita.fecha_hora }}</td>
+                <td>
+                  <span class="badge {% if cita.estado == 'agendada' %}bg-success{% elif cita.estado == 'cancelada' %}bg-danger{% else %}bg-secondary{% endif %}">
+                    {{ cita.estado|capfirst }}
+                  </span>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+  </div>
+  {% else %}
+    <div class="alert alert-info mt-4">No hay citas para mostrar.</div>
+  {% endif %}
+  <div class="d-flex justify-content-between align-items-center mt-4">
+    <button type="button" class="btn btn-secondary btn-volver" onclick="window.history.back()"><i class="fas fa-arrow-left me-2"></i>Volver</button>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const cedulaInput = document.getElementById('cedula');
+    cedulaInput.addEventListener('input', function () {
+      this.value = this.value.replace(/\D/g, '');
+    });
+  });
+</script>
+{% endblock %}

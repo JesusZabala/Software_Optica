@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optica - Inicio de Sesión</title>
+
+    <!-- CSS locales --> 
+    <link href="{% static 'principal/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'principal/css/gestion.css' %}" rel="stylesheet">
+    <link href="{% static 'principal/css/optica-estilo.css' %}" rel="stylesheet">
+
+    <!-- Fuentes externas -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-header">
+            <img src="{% static 'principal/img/LogoB.png' %}" alt="Opti Samuel C.A" class="login-logo">
+            <h2 class="login-title">OPTICA</h2>
+            <p class="login-subtitle">Sistema de Gestión Óptica</p>
+        </div>
+
+        <div class="login-form">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-danger text-center" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+            
+            <form action="{% url 'Login' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-floating mb-3">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Usuario" required>
+                    </div>
+                </div>
+                
+                <div class="form-floating mb-3">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña" required>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-login">
+                    <i class="fas fa-sign-in-alt me-2"></i> INICIAR SESIÓN
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer-login">
+        <p>&copy; 2025 Optica - Todos los derechos reservados |</p>
+    </footer>
+
+    <!-- Scripts locales -->
+    <script src="{% static 'principal/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'principal/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Script para eliminar alertas en recarga -->
+    <script>
+        if (window.performance && window.performance.navigation.type === 1) {
+            const alerts = document.querySelectorAll('.alert');
+            alerts.forEach(alert => alert.remove());
+        }
+    </script>
+</body>
+</html>

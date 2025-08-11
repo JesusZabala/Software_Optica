@@ -1,0 +1,363 @@
+/*
+  Archivo: optica-estilo.css
+  Descripción: Estilos unificados para todas las interfaces del sistema de gestión óptica Opti Samuel C.A.
+  Paleta principal: Verde oscuro (#184008), blanco, y acentos suaves.
+*/
+
+:root {
+  --verde-oscuro: #184008;
+  --verde-oscuro-trans: rgba(24, 64, 8, 0.95);
+  --verde-oscuro-bg: rgba(24, 64, 8, 0.85);
+  --blanco: #fff;
+  --gris-suave: #f2f5f0;
+  --gris-texto: #444;
+  --borde-radius: 0.5rem;
+  --negro: #000;
+}
+
+body {
+  font-family: 'Lora', serif;
+  background: linear-gradient(rgba(24, 64, 8, 0.7), rgba(24, 64, 8, 0.7)), url("../img/fondo.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  color: var(--gris-texto);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Raleway', sans-serif;
+  color: var(--verde-oscuro);
+  font-weight: 700;
+}
+
+a, a:visited {
+  color: var(--verde-oscuro);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover {
+  color: #0e2604;
+  text-decoration: underline;
+}
+
+.btn, .btn-login {
+  background: var(--verde-oscuro);
+  color: var(--blanco);
+  border: none;
+  border-radius: var(--borde-radius);
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  box-shadow: 0 2px 8px rgba(24, 64, 8, 0.08);
+  transition: background 0.2s, color 0.2s;
+}
+.btn:hover, .btn-login:hover {
+  background: #0e2604;
+  color: var(--blanco);
+}
+
+.btn-cerrar-sesion {
+  background: var(--verde-oscuro);
+  color: #fff !important;
+  border: none;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  padding: 0.45rem 1.2rem;
+  margin-left: 1.5rem;
+  box-shadow: 0 2px 8px rgba(24,64,8,0.08);
+  transition: background 0.2s, color 0.2s;
+  display: inline-block;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+.btn-cerrar-sesion:hover, .btn-cerrar-sesion:focus {
+  background: #0e2604;
+  color: #fff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+.user-info .btn-cerrar-sesion {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.login-container, .form-container, .main-container, .content-box {
+  background: var(--blanco);
+  border-radius: var(--borde-radius);
+  box-shadow: 0 4px 24px rgba(24, 64, 8, 0.10);
+  padding: 2.5rem 2rem;
+  margin: 2rem auto;
+  max-width: 420px;
+}
+
+.login-header, .header-box {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.login-logo {
+  width: 90px;
+  margin-bottom: 1rem;
+}
+.login-title {
+  font-size: 2rem;
+  letter-spacing: 2px;
+  color: var(--verde-oscuro);
+}
+.login-title, .login-header h2 {
+  color: #000 !important;
+  font-weight: 900;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.08), 0 1px 0 #fff;
+}
+.login-subtitle {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.login-subtitle, .login-header p {
+  color: #000 !important;
+  font-weight: 700;
+  opacity: 1;
+}
+
+.input-group {
+  display: flex;
+  align-items: stretch;
+}
+.input-group-text {
+  background: var(--verde-oscuro);
+  color: var(--blanco);
+  border: none;
+  font-size: 1.2rem;
+  min-width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem 0 0 0.5rem;
+  height: 48px;
+  padding: 0 16px;
+}
+.input-group .form-control {
+  height: 48px;
+  font-size: 1.1rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+}
+
+.form-control:focus {
+  border-color: var(--verde-oscuro);
+  box-shadow: 0 0 0 0.2rem rgba(24, 64, 8, 0.15);
+}
+
+.alert {
+  border-radius: var(--borde-radius);
+  font-weight: 500;
+}
+
+footer.footer-login, .footer {
+  background: var(--verde-oscuro-bg);
+  color: var(--blanco);
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.95rem;
+  border-radius: var(--borde-radius);
+  margin-top: 2rem;
+}
+
+/* Tablas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--blanco);
+  border-radius: var(--borde-radius);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(24, 64, 8, 0.08);
+}
+th, td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+th {
+  background: var(--verde-oscuro-bg);
+  color: var(--blanco);
+}
+tr:nth-child(even) {
+  background: var(--gris-suave);
+}
+
+/* Formularios */
+.form-floating > .form-control, .form-floating > label {
+  font-size: 1rem;
+}
+
+/* Cards y cajas */
+.card, .box, .panel {
+  border-radius: var(--borde-radius);
+  box-shadow: 0 2px 8px rgba(24, 64, 8, 0.08);
+  border: none;
+}
+
+/* Menú de navegación */
+.navbar, .sidebar {
+  background: var(--verde-oscuro-bg);
+  border-radius: var(--borde-radius);
+}
+.navbar-brand, .sidebar-title {
+  color: var(--blanco) !important;
+  font-weight: 700;
+}
+.nav-link, .sidebar-link {
+  color: var(--blanco) !important;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-link:hover, .sidebar-link:hover {
+  color: #b6e2b6 !important;
+}
+
+/* Estilos para formularios de empleados con temática óptica */
+.empleado-form-optica {
+  background: var(--blanco, #fff);
+  border-radius: var(--borde-radius, 0.5rem);
+  box-shadow: 0 4px 24px rgba(24, 64, 8, 0.10);
+  padding: 2.5rem 2rem;
+  max-width: 420px;
+  margin: 2rem auto;
+  border: 2px solid var(--verde-oscuro, #184008);
+}
+.form-title {
+  color: var(--verde-oscuro, #184008);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.btn-optica {
+  background: var(--verde-oscuro, #184008);
+  color: #fff;
+  border: none;
+  border-radius: var(--borde-radius, 0.5rem);
+  font-weight: 600;
+  padding: 0.6rem 2rem;
+  box-shadow: 0 2px 8px rgba(24, 64, 8, 0.08);
+  transition: background 0.2s, color 0.2s;
+}
+.btn-optica:hover {
+  background: #0e2604;
+  color: #fff;
+}
+.btn-volver {
+  background: #b6e2b6;
+  color: var(--verde-oscuro, #184008);
+  border: none;
+  border-radius: var(--borde-radius, 0.5rem);
+  font-weight: 600;
+  padding: 0.6rem 1.5rem;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-volver:hover {
+  background: var(--verde-oscuro, #184008);
+  color: #fff;
+}
+.form-container .form-control, .form-container .form-select {
+  border: 1.5px solid var(--verde-oscuro, #184008);
+  border-radius: var(--borde-radius, 0.5rem);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.form-container .form-control:focus, .form-container .form-select:focus {
+  border-color: #0e2604;
+  box-shadow: 0 0 0 0.2rem rgba(24, 64, 8, 0.15);
+}
+
+/* === FORMULARIOS DE LA ÓPTICA (CONSULTAR CITAS, REGISTRAR, ETC) === */
+.form-container, .empleado-form-optica, .diagnostico-form-container {
+  background: var(--blanco, #fff);
+  border-radius: var(--borde-radius, 0.5rem);
+  box-shadow: 0 4px 24px rgba(24, 64, 8, 0.10);
+  padding: 2.5rem 2rem;
+  max-width: 420px;
+  margin: 2rem auto;
+  border: 2px solid var(--verde-oscuro, #184008);
+}
+.form-title, .diagnostico-form-container h2 {
+  color: var(--verde-oscuro, #184008);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.btn-optica, .diagnostico-form-container button[type="submit"] {
+  background: var(--verde-oscuro, #184008);
+  color: #fff;
+  border: none;
+  border-radius: var(--borde-radius, 0.5rem);
+  font-weight: 600;
+  padding: 0.6rem 2rem;
+  box-shadow: 0 2px 8px rgba(24, 64, 8, 0.08);
+  transition: background 0.2s, color 0.2s;
+}
+.btn-optica:hover, .diagnostico-form-container button[type="submit"]:hover {
+  background: #0e2604;
+  color: #fff;
+}
+.btn-volver, .diagnostico-form-container button[type="button"] {
+  background: #b6e2b6;
+  color: var(--verde-oscuro, #184008);
+  border: none;
+  border-radius: var(--borde-radius, 0.5rem);
+  font-weight: 600;
+  padding: 0.6rem 1.5rem;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-volver:hover, .diagnostico-form-container button[type="button"]:hover {
+  background: var(--verde-oscuro, #184008);
+  color: #fff;
+}
+.form-container .form-control, .form-container .form-select, .diagnostico-form-container input, .diagnostico-form-container select, .diagnostico-form-container textarea {
+  border: 1.5px solid var(--verde-oscuro, #184008);
+  border-radius: var(--borde-radius, 0.5rem);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.form-container .form-control:focus, .form-container .form-select:focus, .diagnostico-form-container input:focus, .diagnostico-form-container select:focus, .diagnostico-form-container textarea:focus {
+  border-color: #0e2604;
+  box-shadow: 0 0 0 0.2rem rgba(24, 64, 8, 0.15);
+}
+.table thead th, .table th {
+  background: var(--verde-oscuro-bg, rgba(24, 64, 8, 0.85));
+  color: #fff;
+}
+.table-hover tbody tr:hover {
+  background: #eafbe6;
+}
+.badge.bg-success {
+  background: #1abc9c !important;
+  color: #fff !important;
+}
+.badge.bg-danger {
+  background: #e74c3c !important;
+  color: #fff !important;
+}
+.badge.bg-secondary {
+  background: #95a5a6 !important;
+  color: #fff !important;
+}
+.alert-info {
+  background: #eafbe6;
+  color: var(--verde-oscuro, #184008);
+  border: 1.5px solid var(--verde-oscuro, #184008);
+}
+@media (max-width: 600px) {
+  .login-container, .form-container, .main-container, .content-box {
+    padding: 1.2rem 0.5rem;
+    max-width: 98vw;
+  }
+  .login-logo {
+    width: 60px;
+  }
+  .form-container, .empleado-form-optica, .diagnostico-form-container {
+    padding: 1.2rem 0.5rem;
+    max-width: 98vw;
+  }
+}

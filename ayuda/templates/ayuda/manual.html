@@ -1,0 +1,21 @@
+{% extends 'principal/base.html' %}
+
+{% block content %}
+<div class="container my-5">
+    <div style="background: #fff; border-radius: 16px; box-shadow: 0 2px 16px rgba(0,0,0,0.13); padding: 32px 36px; max-width: 600px; margin: auto; text-align: center;">
+        <h2 class="mb-4 text-optica fw-bold" style="color: #1a7e38; text-shadow: 1px 1px 2px #eee;">Manual de Usuario</h2>
+        <p class="fs-5 mb-4" style="color: #2c3e50;">
+            El <strong>manual de usuario</strong> es una guía diseñada para ayudarte a comprender y aprovechar todas las funcionalidades del sistema de óptica.<br>
+            Aquí encontrarás instrucciones paso a paso, recomendaciones y respuestas a preguntas frecuentes para que puedas utilizar el sistema de manera eficiente.
+        </p>
+        <div class="d-flex justify-content-center gap-3">
+            <a href="javascript:window.history.back();" class="btn btn-optica fw-bold text-white w-50" style="font-size: 1.1rem; text-shadow: 1px 1px 2px #000;">
+                <i class="fas fa-arrow-left me-2"></i>Volver
+            </a>
+            <a href="{% url 'ayuda:descargar_manual_usuario' %}" class="btn btn-success fw-bold w-50" style="font-size: 1.1rem; text-shadow: 1px 1px 2px #000;" download>
+                <i class="fas fa-file-download me-2"></i>Descargar Manual
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

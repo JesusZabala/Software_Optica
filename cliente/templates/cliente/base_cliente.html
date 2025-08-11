@@ -1,0 +1,25 @@
+<!-- cliente/templates/cliente/base_cliente.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>{% block title %}Gestión de Clientes{% endblock %}</title>
+    <link href="{% static 'principal/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'principal/css/gestion.css' %}" rel="stylesheet">
+    <link href="{% static 'principal/css/optica-estilo.css' %}" rel="stylesheet">
+</head>
+<body>
+    <header class="p-3 bg-primary text-white text-center">
+        <h1>Gestión de Clientes</h1>
+    </header>
+
+    <main class="container my-5">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="text-center py-3 bg-light">
+        <small>&copy; 2025 OptiSamuel C.A - Todos los derechos reservados</small>
+    </footer>
+</body>
+</html>

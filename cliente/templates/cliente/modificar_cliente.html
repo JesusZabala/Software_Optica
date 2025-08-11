@@ -1,0 +1,93 @@
+{% extends 'principal/base.html' %}
+{% block title %}Modificar Cliente{% endblock %}
+{% block content %}
+<div class="form-container empleado-form-optica" style="max-width: 400px; margin: 0 auto;">
+  <h2 class="form-title text-center">Modificar Cliente</h2>
+  <form method="get" action="" class="mb-4">
+      <div class="mb-3 d-flex flex-column">
+        <label class="form-label mb-1" for="cedula_buscar">Ingrese la cédula del cliente a modificar:</label>
+        <input type="text" name="cedula" id="cedula_buscar" class="form-control" value="{{ cliente.cedula|default:'' }}" maxlength="8" pattern="\d{1,8}" title="Solo números, máximo 8 dígitos" required>
+      </div>
+      <div class="mb-3">
+        <button type="submit" class="btn btn-optica w-100"><i class="fas fa-search me-2"></i>Buscar</button>
+      </div>
+  </form>
+  {% if messages %}
+      {% for message in messages %}
+         <div class="alert {% if 'error' in message.tags %}alert-danger{% else %}alert-success{% endif %}">
+              {{ message }}
+          </div>
+      {% endfor %}
+  {% endif %}
+  {% if cliente %}
+      <form method="post" action="">
+          {% csrf_token %}
+          <input type="hidden" name="cedula_original" value="{{ cliente.cedula }}">
+          <div class="mb-3 d-flex flex-column">
+            <label class="form-label mb-1" for="cedula_modificar">Cédula:</label>
+            <input type="text" name="cedula" id="cedula_modificar" class="form-control" value="{{ cliente.cedula }}" maxlength="8" pattern="\d{1,8}" title="Solo números, máximo 8 dígitos" required>
+          </div>
+          <div class="mb-3 d-flex flex-column">
+            <label class="form-label mb-1" for="nombre_modificar">Nombre:</label>
+            <input type="text" name="nombre" id="nombre_modificar" class="form-control" value="{{ cliente.nombre }}" maxlength="100" pattern="[A-Za-z\s]+" title="Solo letras y espacios" required>
+          </div>
+          <div class="mb-3 d-flex flex-column">
+            <label class="form-label mb-1" for="telefono_modificar">Teléfono:</label>
+            <input type="text" name="telefono" id="telefono_modificar" class="form-control" value="{{ cliente.telefono }}" maxlength="11" pattern="\d{11}" title="Debe contener exactamente 11 números">
+          </div>
+          <div class="mb-3 d-flex flex-column">
+            <label class="form-label mb-1" for="correo_modificar">Correo:</label>
+            <input type="email" name="correo" id="correo_modificar" class="form-control" value="{{ cliente.correo }}">
+          </div>
+          <div class="mb-3 d-flex flex-column">
+            <label class="form-label mb-1" for="direccion_modificar">Dirección:</label>
+            <textarea name="direccion" id="direccion_modificar" class="form-control">{{ cliente.direccion }}</textarea>
+          </div>
+          <div class="mb-3">
+            <button type="submit" class="btn btn-optica w-100"><i class="fas fa-save me-2"></i>Actualizar</button>
+          </div>
+      </form>
+  {% endif %}
+  <div class="d-flex justify-content-between align-items-center mt-4">
+    <button type="button" class="btn btn-secondary btn-volver" onclick="window.history.back()"><i class="fas fa-arrow-left me-2"></i>Volver</button>
+  </div>
+</div>
+<script>
+    const nombreInput = document.getElementById('nombre_modificar');
+    if (nombreInput) {
+        nombreInput.addEventListener('input', function() {
+            this.value = this.value.replace(/[^A-Za-z\s]/g, '');
+            if (this.value.length > 100) {
+                this.value = this.value.slice(0, 100);
+            }
+        });
+    }
+    const telefonoInput = document.getElementById('telefono_modificar');
+    if (telefonoInput) {
+        telefonoInput.addEventListener('input', function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+            if (this.value.length > 11) {
+                this.value = this.value.slice(0, 11);
+            }
+        });
+    }
+    const cedulaBuscarInput = document.getElementById('cedula_buscar');
+    if (cedulaBuscarInput) {
+        cedulaBuscarInput.addEventListener('input', function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+            if (this.value.length > 8) {
+                this.value = this.value.slice(0, 8);
+            }
+        });
+    }
+    const cedulaModificarInput = document.getElementById('cedula_modificar');
+    if (cedulaModificarInput) {
+        cedulaModificarInput.addEventListener('input', function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+            if (this.value.length > 8) {
+                this.value = this.value.slice(0, 8);
+            }
+        });
+    }
+</script>
+{% endblock %}

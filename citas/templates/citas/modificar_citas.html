@@ -1,0 +1,60 @@
+{% extends 'principal/base.html' %}
+
+{% block content %}
+<div class="form-container empleado-form-optica">
+  <h2 class="form-title">Modificar Cita</h2>
+
+  {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+
+  {% if not cita %}
+    <form method="get" class="mb-4">
+      <div class="mb-3">
+        <label for="id_cita">Selecciona una cita:</label>
+        <select name="id_cita" class="form-select" required>
+          <option value="">--Seleccionar--</option>
+          {% for c in citas %}
+            <option value="{{ c.id_cita }}">#{{ c.id_cita }} - {{ c.id_cliente.nombre }} - {{ c.fecha_hora|date:"Y-m-d H:i" }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="d-flex justify-content-between align-items-center">
+        <button type="button" class="btn btn-secondary btn-volver" onclick="window.history.back()">
+          <i class="fas fa-arrow-left me-2"></i>Volver
+        </button>
+        <button type="submit" class="btn btn-optica">Buscar</button>
+      </div>
+    </form>
+  {% else %}
+    {% if form.non_field_errors %}
+    <div class="alert alert-danger">
+      {% for error in form.non_field_errors %}
+        <div>{{ error }}</div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <form method="post" novalidate>
+      {% csrf_token %}
+      {% for field in form %}
+        <div class="mb-3">
+          {{ field.label_tag }}
+          {{ field }}
+          {% if field.errors %}
+            <div class="text-danger small">{{ field.errors|striptags }}</div>
+          {% endif %}
+        </div>
+      {% endfor %}
+      <div class="d-flex justify-content-between align-items-center mt-4">
+        <button type="button" class="btn btn-secondary btn-volver" onclick="window.history.back()">
+          <i class="fas fa-arrow-left me-2"></i>Volver
+        </button>
+        <button type="submit" class="btn btn-optica">Guardar cambios</button>
+      </div>
+    </form>
+  {% endif %}
+</div>
+{% endblock %}

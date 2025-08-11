@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      margin: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      table-layout: fixed;
+    }
+    th, td {
+      border: 1px solid #000;
+      padding: 6px 8px;
+      text-align: left;
+      vertical-align: top;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+      font-size: 12px;
+    }
+    h2 {
+      text-align: center;
+      margin: 0 0 10px 0;
+      font-size: 16px;
+    }
+    p {
+      text-align: center;
+      margin: 0 0 15px 0;
+      font-size: 12px;
+    }
+
+    /* clases específicas para cada módulo */
+    .clientes th:nth-child(1), .clientes td:nth-child(1) { width: 5%; }
+    .clientes th:nth-child(2), .clientes td:nth-child(2) { width: 20%; }
+    .clientes th:nth-child(3), .clientes td:nth-child(3) { width: 15%; }
+    .clientes th:nth-child(4), .clientes td:nth-child(4) { width: 15%; }
+    .clientes th:nth-child(5), .clientes td:nth-child(5) { width: 20%; }
+    .clientes th:nth-child(6), .clientes td:nth-child(6) { width: 25%; }
+
+    .empleados th:nth-child(1), .empleados td:nth-child(1) { width: 10%; }
+    .empleados th:nth-child(2), .empleados td:nth-child(2) { width: 35%; }
+    .empleados th:nth-child(3), .empleados td:nth-child(3) { width: 30%; }
+    .empleados th:nth-child(4), .empleados td:nth-child(4) { width: 25%; }
+
+    .citas th:nth-child(1), .citas td:nth-child(1) { width: 7%; }
+    .citas th:nth-child(2), .citas td:nth-child(2) { width: 25%; }
+    .citas th:nth-child(3), .citas td:nth-child(3) { width: 23%; }
+    .citas th:nth-child(4), .citas td:nth-child(4) { width: 25%; }
+    .citas th:nth-child(5), .citas td:nth-child(5) { width: 20%; }
+
+    .diagnosticos th:nth-child(1), .diagnosticos td:nth-child(1) { width: 10%; }
+    .diagnosticos th:nth-child(2), .diagnosticos td:nth-child(2) { width: 30%; }
+    .diagnosticos th:nth-child(3), .diagnosticos td:nth-child(3) { width: 40%; }
+    .diagnosticos th:nth-child(4), .diagnosticos td:nth-child(4) { width: 20%; }
+
+    .fabricaciones th:nth-child(1), .fabricaciones td:nth-child(1) { width: 8%; }
+    .fabricaciones th:nth-child(2), .fabricaciones td:nth-child(2) { width: 28%; }
+    .fabricaciones th:nth-child(3), .fabricaciones td:nth-child(3) { width: 22%; }
+    .fabricaciones th:nth-child(4), .fabricaciones td:nth-child(4) { width: 20%; }
+    .fabricaciones th:nth-child(5), .fabricaciones td:nth-child(5) { width: 22%; }
+  </style>
+</head>
+<body>
+  <h2>Reporte de {{ modulo|title }}</h2>
+  <p>Rango de fechas: {{ fecha_inicio }} a {{ fecha_fin }}</p>
+  <table class="{{ modulo }}">
+    <thead>
+      <tr>
+        {% for h in headers %}
+          <th>{{ h }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in resultados %}
+      <tr>
+        {% for campo in row %}
+          <td>{{ campo }}</td>
+        {% endfor %}
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="{{ headers|length }}" style="text-align:center;">
+          No hay datos para mostrar.
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

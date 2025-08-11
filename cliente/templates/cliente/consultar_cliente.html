@@ -1,0 +1,46 @@
+{% extends 'principal/base.html' %}
+{% block title %}Consultar Cliente{% endblock %}
+{% block content %}
+<div class="form-container empleado-form-optica" style="max-width: 400px; margin: 0 auto;">
+  <h2 class="form-title text-center">Consultar Cliente</h2>
+  <form method="get" action="" class="mb-4">
+      <div class="mb-3 d-flex flex-column">
+        <label class="form-label mb-1" for="cedula">Cédula:</label>
+        <input type="text" id="cedula" name="cedula" class="form-control" maxlength="8" pattern="\d{1,8}" title="Solo números, máximo 8 dígitos" required>
+      </div>
+      <div class="mb-3">
+        <button type="submit" class="btn btn-optica w-100"><i class="fas fa-search me-2"></i>Buscar</button>
+      </div>
+  </form>
+  {% if mensaje %}
+      <div class="alert alert-danger">{{ mensaje }}</div>
+  {% endif %}
+  {% if cliente %}
+      <div class="card mt-3">
+        <div class="card-body">
+          <h5 class="card-title">Datos del Cliente:</h5>
+          <p class="mb-1"><strong>Cédula:</strong> {{ cliente.cedula }}</p>
+          <p class="mb-1"><strong>Nombre:</strong> {{ cliente.nombre }}</p>
+          <p class="mb-1"><strong>Teléfono:</strong> {{ cliente.telefono }}</p>
+          <p class="mb-1"><strong>Correo:</strong> {{ cliente.correo }}</p>
+          <p class="mb-1"><strong>Dirección:</strong> {{ cliente.direccion }}</p>
+        </div>
+      </div>
+  {% endif %}
+  <div class="d-flex justify-content-between align-items-center mt-4">
+    <button type="button" class="btn btn-secondary btn-volver" onclick="window.history.back()"><i class="fas fa-arrow-left me-2"></i>Volver</button>
+  </div>
+</div>
+<script>
+    // Validar cédula: solo números, máximo 8 dígitos
+    const cedulaInput = document.getElementById('cedula');
+    if (cedulaInput) {
+        cedulaInput.addEventListener('input', function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+            if (this.value.length > 8) {
+                this.value = this.value.slice(0, 8);
+            }
+        });
+    }
+</script>
+{% endblock %}

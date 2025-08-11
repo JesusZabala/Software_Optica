@@ -1,0 +1,29 @@
+{% extends 'principal/base.html' %}
+
+{% block content %}
+<div class="container my-5">
+    <div style="background: #fff; border-radius: 16px; box-shadow: 0 2px 16px rgba(0,0,0,0.13); padding: 32px 36px; max-width: 600px; margin: auto;">
+        <h2 class="mb-4 text-optica fw-bold" style="color: #1a237e; text-shadow: 1px 1px 2px #eee;">ℹ️ Acerca de</h2>
+        <p class="fs-5 mb-3" style="color: #2c3e50;"><strong>¿Quiénes somos?</strong><br>
+            Opti Samuel es una óptica dedicada a brindar soluciones visuales de calidad. Durante años, gestionamos nuestros procesos de forma manual, lo que generaba demoras y posibles errores humanos. Ahora, con este sistema, optimizamos y automatizamos la gestión de todos nuestros procesos, logrando mayor eficiencia, rapidez y precisión en la atención a nuestros clientes.
+        </p>
+        <p class="fs-5" style="color: #2c3e50;">Este sistema fue creado para gestionar eficientemente la operación de una óptica, permitiendo el control integral de los procesos y mejorando la atención a los clientes.</p>
+        <p class="fs-5 mb-2" style="color: #2c3e50;"><strong>Módulos principales:</strong></p>
+        <ul class="fs-5 mb-4" style="color: #2c3e50;">
+            <li>Citas (gestión y modificación de turnos)</li>
+            <li>Clientes (registro y administración)</li>
+            <li>Diagnósticos (asociados a citas y optometristas)</li>
+            <li>Empleados (roles: optometrista, técnico, supervisor, recepcionista)</li>
+            <li>Fabricaciones (control de procesos y unicidad por diagnóstico)</li>
+            <li>Reportes (informes y estadísticas)</li>
+            <li>Ayuda (manuales, información y soporte)</li>
+        </ul>
+        <p class="fs-6 mb-4" style="color: #2c3e50;"><strong>Desarrollado por:</strong> Opti Samuel C.A<br><strong>Responsable técnico:</strong> Equipo de Soporte<br><strong>Contacto soporte:</strong> soporte@opticasamuel.com</p>
+        <div class="d-flex justify-content-center">
+            <a href="javascript:window.history.back();" class="btn btn-optica fw-bold text-white w-50" style="font-size: 1.1rem; text-shadow: 1px 1px 2px #000;">
+                <i class="fas fa-arrow-left me-2"></i>Volver
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

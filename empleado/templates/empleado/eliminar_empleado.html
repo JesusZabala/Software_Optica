@@ -1,0 +1,33 @@
+{% extends 'principal/base.html' %}
+{% block content %}
+<h2>Eliminar Empleado</h2>
+
+{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Usuario</th>
+    <th>Nombre</th>
+    <th>Rol</th>
+    <th>Acciones</th>
+  </tr>
+  {% for empleado in empleados %}
+  <tr>
+    <td>{{ empleado.id_empleado }}</td>
+    <td>{{ empleado.usuario }}</td>
+    <td>{{ empleado.nombre }}</td>
+    <td>{{ empleado.rol }}</td>
+    <td>
+      <a href="{% url 'empleados:borrar_empleado' empleado.id_empleado %}" onclick="return confirm('¿Estás seguro de eliminar este empleado?');">Eliminar</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

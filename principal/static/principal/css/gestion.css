@@ -1,0 +1,1296 @@
+body {
+  font-family: 'Lora';
+  background: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("../img/fondo.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+.message-error {
+  color: red;
+}
+
+.message-success {
+  color: green;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Raleway';
+}
+
+p {
+  line-height: 1.75;
+}
+
+.text-faded {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.site-heading {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  text-transform: uppercase;
+  line-height: 1;
+  font-family: 'Raleway';
+}
+
+.site-heading .site-heading-upper {
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.site-heading .site-heading-lower {
+  font-size: 5rem;
+  font-weight: 100;
+  line-height: 4rem;
+}
+
+.page-section {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.section-heading {
+  text-transform: uppercase;
+}
+
+.section-heading .section-heading-upper {
+  display: block;
+  font-size: 1rem;
+  font-weight: 800;
+  padding-bottom:.5rem;
+}
+
+.section-heading .section-heading-lower {
+  display: block;
+  font-size: 3rem;
+  font-weight: 100;
+}
+
+.section-heading .section-heading-under {
+  display: block;
+  font-size: 1rem;
+  text-transform: none;
+  font-weight: 300;
+  margin-top:.5rem;
+}
+
+.bg-faded {
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+#mainNav {
+  background-color: rgba(24, 64, 8);
+  font-family: 'Raleway';
+}
+
+#mainNav .navbar-brand {
+  color: #ffffff;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 800;
+}
+
+#mainNav .navbar-nav .nav-item.active .nav-link {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+@media (min-width: 992px) {
+  #mainNav .navbar-nav .nav-item .nav-link {
+    font-size: 0.9rem;
+  }
+  #mainNav .navbar-nav .nav-item .nav-link:hover {
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: underline;
+  }
+  #mainNav .navbar-nav .nav-item.active .nav-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+}
+
+.btn-xl {
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.intro {
+  position: relative;
+}
+
+@media (min-width: 992px) {
+  .intro .intro-img {
+    width: 75%;
+    float: left;
+  }
+  .intro .intro-text {
+    left: 600;
+    width: 60%;
+    margin-top: 3rem;
+    background-color: rgba(24, 64, 8);
+    color: cornsilk;
+    position: absolute;
+  }
+  .intro .intro-text .intro-button {
+    width: 100%;
+    left: 0;
+    position: absolute;
+    bottom: -2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .intro .intro-text {
+    width: 45%;
+  }
+}
+
+.cta {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background-color: rgb(242, 245, 240);
+}
+
+.cta .cta-inner {
+  position: relative;
+  padding: 3rem;
+  margin: 0.5rem;
+  background-color: rgba(24, 64, 8);
+  color: cornsilk;
+}
+
+.cta .cta-inner:before {
+  border-radius: 0.5rem;
+  content: '';
+  position: absolute;
+  top: -0.5rem;
+  bottom: -0.5rem;
+  left: -0.5rem;
+  right: -0.5rem;
+  border: 0.25rem solid rgba(255, 255, 255, 0.85);
+}
+
+.cta .cta-innerv {
+  position: relative;
+  padding: 3rem;
+  margin: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+@media (min-width: 992px) {
+  .about-heading .about-heading-img {
+    position: relative;
+    z-index: 0;
+  }
+  .about-heading .about-heading-content {
+    margin-top: -5rem;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@media (min-width: 992px) {
+  .product-item .product-item-title {
+    position: relative;
+    z-index: 1;
+    margin-bottom: -3rem;
+  }
+  .product-item .product-item-img {
+    position: relative;
+    z-index: 0;
+    max-width: 60vw;
+  }
+  .product-item .product-item-description {
+    position: relative;
+    z-index: 1;
+    margin-top: -3rem;
+    max-width: 50vw;
+  }
+}
+
+@media (min-width: 992px) {
+  .list-hours {
+    width: 50%;
+    font-size: 1.1rem;
+  }
+}
+
+.address strong {
+  font-size: 1.2rem;
+}
+
+.footer {
+    background-color: rgba(24, 64, 8, 0.8);
+}
+
+.btn {
+  box-shadow: 0px 3px 3px 0px rgba(33, 37, 41, 0.1);
+}
+
+.font-weight-light {
+  font-weight: 100 !important;
+}
+
+.mbtm{
+  padding-top: 5rem;
+}
+
+.mbt{
+  padding-top: 2rem;
+}
+
+.mbt1{
+  padding-top: 1.25rem;
+}
+
+a.link{
+  color: rgba(255, 255, 255, 0.7);
+}
+
+a.link:hover{
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.section-content{
+  font-family: 'Lora' !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 28px !important;
+}
+
+ul.errorlist{
+  padding-top: .75rem;
+  font-style: italic;
+  color: red;
+}
+
+/* Estilos mejorados para el menú desplegable */
+.nav-item {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: rgba(24, 64, 8, 0.95);
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1000;
+    padding: 0;
+    list-style: none;
+    border-radius: .25rem;
+    left: 0;
+    top: 100%;
+    margin-top: 5px;
+}
+
+.dropdown-menu a {
+    color: rgba(255, 255, 255, 0.7);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    text-transform: none;
+    font-weight: normal;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-menu li:last-child a {
+    border-bottom: none;
+}
+
+/* Mostrar solo con clase .show */
+.dropdown-menu {
+  display: none !important;
+}
+
+.dropdown-menu.show {
+  display: block !important;
+}
+
+/* Estilos para submenús anidados */
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -1px;
+  margin-left: 0;
+}
+
+/* Flecha indicadora para items con submenú */
+.nav-item.dropdown > a::after,
+.dropdown-submenu > a::after {
+  display: inline-block;
+  margin-left: 0.255em;
+  vertical-align: 0.255em;
+  content: "";
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.dropdown-submenu > a::after {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Estilo para items con submenu en el dropdown */
+.dropdown-item.dropdown-toggle {
+  padding-right: 2rem !important;
+  position: relative !important;
+}
+
+/* Evitar que se cierre al hacer clic dentro del menú */
+.dropdown-menu {
+  pointer-events: auto;
+}
+
+/* Estilo para el hover en los items del dropdown */
+.dropdown-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+body {
+  font-family: 'Lora';
+  background: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("../img/fondo.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Raleway';
+}
+
+p {
+  line-height: 1.75;
+}
+
+.text-faded {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.site-heading {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  text-transform: uppercase;
+  line-height: 1;
+  font-family: 'Raleway';
+}
+
+.site-heading .site-heading-upper {
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.site-heading .site-heading-lower {
+  font-size: 5rem;
+  font-weight: 100;
+  line-height: 4rem;
+}
+
+.page-section {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.section-heading {
+  text-transform: uppercase;
+}
+
+.section-heading .section-heading-upper {
+  display: block;
+  font-size: 1rem;
+  font-weight: 800;
+  padding-bottom: .5rem;
+}
+
+.section-heading .section-heading-lower {
+  display: block;
+  font-size: 3rem;
+  font-weight: 100;
+}
+
+.section-heading .section-heading-under {
+  display: block;
+  font-size: 1rem;
+  text-transform: none;
+  font-weight: 300;
+  margin-top: .5rem;
+}
+
+.bg-faded {
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+#mainNav {
+  background-color: rgba(24, 64, 8);
+  font-family: 'Raleway';
+  position: relative;
+}
+
+#mainNav .navbar-brand {
+  color: #ffffff;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 800;
+}
+
+#mainNav .navbar-nav .nav-item.active .nav-link {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.navbar-nav-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 15px;
+  margin-bottom: -15px;
+}
+
+.navbar-nav-scroll .navbar-nav {
+  display: inline-block;
+  float: none;
+}
+
+@media (min-width: 992px) {
+  #mainNav .navbar-nav .nav-item .nav-link {
+    font-size: 0.9rem;
+  }
+  #mainNav .navbar-nav .nav-item .nav-link:hover {
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: underline;
+  }
+  #mainNav .navbar-nav .nav-item.active .nav-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+}
+
+.btn-xl {
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.intro {
+  position: relative;
+}
+
+@media (min-width: 992px) {
+  .intro .intro-img {
+    width: 75%;
+    float: left;
+  }
+  .intro .intro-text {
+    left: 600;
+    width: 60%;
+    margin-top: 3rem;
+    background-color: rgba(24, 64, 8);
+    color: cornsilk;
+    position: absolute;
+  }
+  .intro .intro-text .intro-button {
+    width: 100%;
+    left: 0;
+    position: absolute;
+    bottom: -2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .intro .intro-text {
+    width: 45%;
+  }
+}
+
+.cta {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background-color: rgb(242, 245, 240);
+}
+
+.cta .cta-inner {
+  position: relative;
+  padding: 3rem;
+  margin: 0.5rem;
+  background-color: rgba(24, 64, 8);
+  color: cornsilk;
+}
+
+.cta .cta-inner:before {
+  border-radius: 0.5rem;
+  content: '';
+  position: absolute;
+  top: -0.5rem;
+  bottom: -0.5rem;
+  left: -0.5rem;
+  right: -0.5rem;
+  border: 0.25rem solid rgba(255, 255, 255, 0.85);
+}
+
+.footer {
+  background-color: rgba(24, 64, 8, 0.9);
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+.footer h4 {
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.footer p {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.5rem;
+}
+
+.footer .divider-light {
+  border-color: rgba(255, 255, 255, 0.2);
+  margin: 1.5rem auto;
+  max-width: 80%;
+}
+
+.footer .fa-stack {
+  width: 2.5em;
+  height: 2.5em;
+  line-height: 2.5em;
+}
+
+.footer .fa-stack .fa-circle {
+  color: rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.footer .fa-stack .fa-inverse {
+  color: rgba(24, 64, 8);
+  font-size: 1.2rem;
+}
+
+.footer .link:hover .fa-stack .fa-circle {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.btn {
+  box-shadow: 0px 3px 3px 0px rgba(33, 37, 41, 0.1);
+}
+
+.font-weight-light {
+  font-weight: 100 !important;
+}
+
+.mbtm {
+  padding-top: 5rem;
+}
+
+.mbt {
+  padding-top: 2rem;
+}
+
+.mbt1 {
+  padding-top: 1.25rem;
+}
+
+a.link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a.link:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.section-content {
+  font-family: 'Lora' !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 28px !important;
+}
+
+/* Estilos para el menú desplegable */
+.nav-item {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: rgba(24, 64, 8, 0.95);
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  padding: 0;
+  list-style: none;
+  border-radius: .25rem;
+  left: 0;
+  top: 100%;
+  margin-top: 0;
+}
+
+.dropdown-item {
+  color: rgba(255, 255, 255, 0.7) !important;
+  padding: 10px 15px !important;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  text-transform: none;
+  font-weight: normal;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  background-color: transparent !important;
+}
+
+.dropdown-item:hover, 
+.dropdown-item:focus {
+  color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dropdown-menu li:last-child .dropdown-item {
+  border-bottom: none;
+}
+
+.dropdown-menu.show {
+  display: block !important;
+}
+
+/* Estilos para submenús anidados */
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -1px;
+  margin-left: 0;
+}
+
+/* Flecha indicadora para items con submenú */
+.nav-item.dropdown > a::after,
+.dropdown-submenu > a::after {
+  display: inline-block;
+  margin-left: 0.255em;
+  vertical-align: 0.255em;
+  content: "";
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent;
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease;
+}
+
+.dropdown-submenu > a::after {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Estilo para items con submenu en el dropdown */
+.dropdown-item.dropdown-toggle {
+  padding-right: 2.5rem !important;
+  position: relative;
+}
+
+/* Hover para las flechas */
+.nav-item.dropdown > a:hover::after,
+.dropdown-submenu > a:hover::after {
+  color: #ffffff;
+}
+
+/* Scrollbar personalizada para el menú */
+.navbar-nav-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.navbar-nav-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-nav-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.navbar-nav-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Estilos para el footer mejorado */
+.footer-info {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 2rem;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 2rem;
+}
+
+.footer-bottom p {
+  margin-bottom: 0.5rem;
+}
+
+.footer .fas {
+  width: 20px;
+  text-align: center;
+  margin-right: 10px;
+}
+
+/* Estilos para el encabezado principal y el logo */
+.site-heading {
+    margin-top: 3rem; /* Reduzco un poco el margen superior */
+    margin-bottom: 3rem; /* Reduzco un poco el margen inferior */
+    text-transform: uppercase;
+    line-height: 1;
+    font-family: 'Raleway';
+}
+
+/* Estilos específicos para la imagen del logo */
+.site-heading .logo-image {
+    max-width: 300px; /* Ajusta este valor para el ancho máximo deseado del logo */
+    height: auto; /* Mantiene la proporción */
+    display: block; /* Evita espacios extra alrededor de la imagen */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+}
+
+/* Para pantallas más pequeñas (donde el logo podría ser demasiado grande) */
+@media (max-width: 991px) {
+    .site-heading .logo-image {
+        max-width: 200px; /* Un tamaño más pequeño para pantallas móviles */
+    }
+}
+
+/* Estilos para la sección de introducción */
+.intro {
+    position: relative;
+}
+
+.intro .intro-img {
+    width: 100%;
+    max-height: 500px; /* Ajusta la altura máxima de la imagen del frente */
+    object-fit: cover; /* Cubre el espacio manteniendo la proporción, recorta si necesario */
+    border-radius: 0.25rem;
+}
+
+/* Ajustes para pantallas de escritorio */
+@media (min-width: 992px) {
+    .intro .intro-img {
+        width: 75%;
+        max-height: 600px; /* Puedes aumentar la altura para pantallas más grandes */
+        float: left;
+        border-radius: 0.25rem;
+    }
+
+    .intro .intro-text {
+        left: 600; /* Ajusta esta posición según el ancho de tu imagen en desktop */
+        width: 40%; /* Ajusta el ancho del texto según lo necesites */
+        margin-top: 3rem;
+        background-color: rgba(24, 64, 8);
+        color: cornsilk;
+        position: absolute;
+        padding: 3rem; /* Añade un poco de padding al texto para que no esté pegado al borde */
+        border-radius: 0.25rem;
+    }
+    /* ... otros estilos para .intro-text en desktop ... */
+}
+
+@media (min-width: 1200px) {
+    .intro .intro-img {
+        max-height: 700px; /* Ajusta si es necesario para pantallas muy grandes */
+    }
+    .intro .intro-text {
+        width: 35%; /* Puedes ajustar aún más el ancho del texto en pantallas extra grandes */
+        left: 65%; /* Ajusta la posición del texto */
+    }
+}
+
+/* Estilos adicionales para la página de inicio */
+
+/* Estilos para las tarjetas de promoción */
+.card {
+    border: none;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Estilos para los servicios */
+.service-item {
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 0.25rem;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.service-item:hover {
+    background-color: rgba(24, 64, 8, 0.1);
+    transform: translateY(-5px);
+}
+
+.service-item i {
+    color: rgba(24, 64, 8);
+}
+
+/* Estilos para las marcas */
+.brand-img {
+    max-height: 80px;
+    width: auto;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.brand-img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* Estilos para testimonios */
+.testimonial-item {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 0.25rem;
+    height: 100%;
+}
+
+/* Estilos para botones */
+.btn-primary {
+    background-color: rgba(24, 64, 8);
+    border-color: rgba(24, 64, 8);
+}
+
+.btn-primary:hover {
+    background-color: rgba(18, 48, 6);
+    border-color: rgba(18, 48, 6);
+}
+
+/* Ajustes de espaciado */
+.page-section {
+    padding: 5rem 0;
+}
+
+.section-heading {
+    margin-bottom: 3rem;
+}
+
+/* Estilos para el botón de iniciar sesión */
+.login-btn-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.btn-login {
+    background-color: rgba(24, 64, 8, 0.9);
+    color: white;
+    border: 2px solid white;
+    border-radius: 30px;
+    padding: 8px 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: white;
+    color: rgba(24, 64, 8);
+    transform: translateY(-2px);
+}
+
+/* Fondos verdes semitransparentes */
+.header-bg {
+    background-color: rgba(24, 64, 8, 0.85);
+    padding: 20px 0;
+    margin-bottom: 30px;
+}
+
+.welcome-bg {
+    background: rgba(24, 64, 8, 0.85);
+    background-size: cover;
+    background-blend-mode: overlay;
+    color: white;
+    padding: 60px 0;
+}
+
+.services-bg {
+    background: rgba(24, 64, 8, 0.85);
+    background-size: cover;
+    background-blend-mode: overlay;
+    color: rgb(5, 1, 1);
+    padding: 60px 0;
+}
+
+.brands-bg {
+    background: rgba(24, 64, 8, 0.85);
+    background-size: cover;
+    background-blend-mode: overlay;
+    color: white;
+    padding: 60px 0;
+}
+
+/* Ajustes para los elementos dentro de las secciones con fondo verde */
+.welcome-bg .section-heading-upper,
+.welcome-bg .section-heading-lower,
+.services-bg .section-heading-upper,
+.services-bg .section-heading-lower,
+.brands-bg .section-heading-upper,
+.brands-bg .section-heading-lower {
+    color: white;
+}
+
+/* Modificación para los servicios (hover verde sólido) */
+.service-item {
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 0.25rem;
+    height: 100%;
+    transition: all 0.3s ease;
+    margin: 10px;
+}
+
+.service-item:hover {
+    background-color: rgba(24, 64, 8);
+    transform: translateY(-5px);
+    color: white;
+}
+
+.service-item:hover i,
+.service-item:hover h4 {
+    color: white;
+}
+
+/* Ajuste para las marcas en sección con fondo verde */
+.brands-bg .brand-img {
+    filter: brightness(0) invert(1);
+    opacity: 0.8;
+}
+
+.brands-bg .brand-img:hover {
+    opacity: 1;
+}
+
+/* ==================== ESTILOS PARA PÁGINA DE LOGIN ==================== */
+.login-page {
+    background: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("../img/fondo.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-header {
+    background-color: rgba(24, 64, 8, 0.9);
+    padding: 2rem;
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: -1px;
+}
+
+.login-logo {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.login-form {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 2.5rem;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.login-form .form-control {
+    height: 45px;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    padding-left: 15px;
+    margin-bottom: 1.5rem;
+}
+
+.login-form .form-control:focus {
+    border-color: rgba(24, 64, 8);
+    box-shadow: 0 0 0 0.25rem rgba(24, 64, 8, 0.25);
+}
+
+.btn-login {
+    background-color: rgba(24, 64, 8);
+    color: white;
+    border: none;
+    padding: 12px;
+    font-weight: 600;
+    width: 100%;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: rgba(18, 48, 6);
+    transform: translateY(-2px);
+}
+
+.footer-login {
+    background-color: rgba(24, 64, 8, 0.9);
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: auto;
+}
+
+.footer-login p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+.login-form .input-group-text {
+    background-color: rgba(24, 64, 8);
+    color: white;
+    border: none;
+    border-radius: 3px 0 0 3px;
+}
+
+.login-form .form-floating > label {
+    padding-left: 45px;
+}
+
+.login-form .form-floating > .form-control {
+    padding-left: 45px;
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+.remember-me input {
+    margin-right: 8px;
+}
+
+.forgot-password a {
+    color: rgba(24, 64, 8);
+    text-decoration: none;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+.login-title {
+    color: white;
+    font-weight: 300;
+    margin-bottom: 0;
+}
+
+.login-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* ==================== ESTILOS PARA PÁGINAS DE EMPLEADOS ==================== */
+.empleado-page {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-empleado {
+    background-color: rgba(24, 64, 8, 0.95);
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo-empleado {
+    display: flex;
+    align-items: center;
+}
+
+.nombre-opt {
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    margin-left: 15px;
+    font-size: 1.2rem;
+}
+
+.user-info {
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.btn-logout {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+    background-color: white;
+    color: rgba(24, 64, 8);
+}
+
+.menu-lateral {
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.menu-lateral .list-group-item {
+    border-left: none;
+    border-right: none;
+    padding: 12px 15px;
+    color: #555;
+    transition: all 0.3s ease;
+}
+
+.menu-lateral .list-group-item.active {
+    background-color: rgba(24, 64, 8, 0.1);
+    color: rgba(24, 64, 8);
+    border-color: #eee;
+    font-weight: 600;
+    border-left: 3px solid rgba(24, 64, 8);
+}
+
+.menu-lateral .list-group-item:not(.active):hover {
+    background-color: rgba(24, 64, 8, 0.05);
+    padding-left: 20px;
+}
+
+.bg-opt {
+    background-color: rgba(24, 64, 8) !important;
+}
+
+.stat-card {
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.footer-empleado {
+    background-color: rgba(24, 64, 8, 0.95);
+    color: white;
+    margin-top: auto;
+}
+
+.btn-opt {
+    background-color: rgba(24, 64, 8);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.btn-opt:hover {
+    background-color: rgba(18, 48, 6);
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .menu-lateral {
+        margin-bottom: 20px;
+    }
+    
+    .user-info {
+        font-size: 0.9rem;
+    }
+    
+    .nombre-opt {
+        font-size: 1rem;
+    }
+}
+
+
